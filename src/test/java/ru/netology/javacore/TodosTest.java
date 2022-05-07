@@ -12,7 +12,7 @@ public class TodosTest {
     }
 
     @AfterAll
-    public static void finishAllAllTest() {
+    public static void finishAllTest() {
         System.out.println("Testing completed");
     }
 
