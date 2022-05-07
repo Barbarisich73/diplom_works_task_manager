@@ -1,12 +1,30 @@
 package ru.netology.javacore;
 
-import org.junit.Test;
+import org.junit.jupiter.api.*;
 
-import static org.junit.Assert.assertEquals;
-
-public class TodosTests {
+public class TodosTest {
     Todos sut = new Todos();
     String task;
+
+    @BeforeAll
+    public static void startedAllTests() {
+        System.out.println("Testing has started");
+    }
+
+    @AfterAll
+    public static void finishAllAllTest() {
+        System.out.println("Testing completed");
+    }
+
+    @BeforeEach
+    public void startedEachTest() {
+        System.out.println("Test started");
+    }
+
+    @AfterEach
+    public void finishEachTest() {
+        System.out.println("The test is over");
+    }
 
     @Test
     public void testAddTask() {
@@ -14,7 +32,7 @@ public class TodosTests {
         sut.addTask(task);
         boolean expResult = sut.todos.contains("Учеба");
         boolean result = true;
-        assertEquals(expResult, result);
+        Assertions.assertEquals(expResult, result);
     }
 
     @Test
@@ -23,7 +41,7 @@ public class TodosTests {
         sut.removeTask(task);
         boolean expResult = sut.todos.isEmpty();
         boolean result = true;
-        assertEquals(expResult, result);
+        Assertions.assertEquals(expResult, result);
     }
 
     @Test
@@ -33,7 +51,7 @@ public class TodosTests {
         sut.addTask("Плавание");
         String expResult = "Акробатика Плавание Учеба";
         String result = sut.getAllTasks();
-        assertEquals(expResult, result);
+        Assertions.assertEquals(expResult, result);
     }
 
 }
